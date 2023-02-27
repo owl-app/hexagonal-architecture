@@ -9,4 +9,4 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
-/apps/*/*/var/
+/apps/*/var/
