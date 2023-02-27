@@ -7,14 +7,18 @@
         "php": ">=8.1.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/doctrine-bundle": "^2.8",
+        "doctrine/orm": "^2.14",
+        "doctrine/persistence": "^3.1",
+        "ramsey/uuid": "^4.7",
         "symfony/console": "6.2.*",
         "symfony/dotenv": "6.2.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.2.*",
+        "symfony/messenger": "6.2.*",
         "symfony/runtime": "6.2.*",
+        "symfony/validator": "6.2.*",
         "symfony/yaml": "6.2.*"
-    },
-    "require-dev": {
     },
     "config": {
         "allow-plugins": {
@@ -30,7 +34,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Owl\\": "src/"
+            "Owl\\": "src/",
+            "Owl\\Apps\\Api\\": "apps/api/src"
         }
     },
     "autoload-dev": {

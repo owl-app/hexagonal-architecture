@@ -1,0 +1,5 @@
+article_get:
+  path: /api/articles
+  controller: Owl\Apps\Api\Controller\Article\ArticleGetController
+  defaults: { auth: false }
+  methods:  [GET]
