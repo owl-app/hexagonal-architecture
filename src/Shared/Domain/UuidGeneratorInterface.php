@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Domain;
 
-interface UuidGenerator
+interface UuidGeneratorInterface
 {
     public function generate(): string;
 }

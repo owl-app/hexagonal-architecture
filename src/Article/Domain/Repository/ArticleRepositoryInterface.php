@@ -8,5 +8,5 @@ use Owl\Article\Domain\Model\Article;
 
 interface ArticleRepositoryInterface
 {
-    public function save(Article $course): void;
+    public function save(Article $article): void;
 }

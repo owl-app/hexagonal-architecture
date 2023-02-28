@@ -5,8 +5,11 @@
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="Owl\Article\Domain\Model\Article" table="article">
-        <id name="id" type="string" column="id" length="36" />
-        <id name="title" type="text" column="title" />
-        <id name="description" type="text" column="description" />
+        <id name="id" column="id" type="uuid">
+            <generator strategy="CUSTOM"/>
+            <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
+        </id>
+        <field name="title" type="text" column="title" />
+        <field name="description" type="text" column="description" />
     </entity>
 </doctrine-mapping>

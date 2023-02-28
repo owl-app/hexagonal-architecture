@@ -7,6 +7,17 @@ services:
     resource: '../src/Controller'
     tags: ['controller.service_arguments']
 
+  _instanceof:
+      Owl\Shared\Domain\Bus\Command\CommandHandlerInterface:
+          tags:
+              - { name: messenger.message_handler, bus: command.bus }
+      Owl\Shared\Domain\Bus\Query\QueryHandlerInterface:
+          tags:
+              - { name: messenger.message_handler, bus: query.bus }
+      Owl\Shared\Domain\Bus\Event\EventBusHandlerInterface:
+          tags:
+              - { name: messenger.message_handler, bus: event.bus }
+
   # Autowire
   Owl\:
     resource: '../../../src'

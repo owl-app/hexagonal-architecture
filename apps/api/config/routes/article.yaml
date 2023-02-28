@@ -3,3 +3,8 @@ article_get:
   controller: Owl\Apps\Api\Controller\Article\ArticleGetController
   defaults: { auth: false }
   methods:  [GET]
+article_post:
+  path: /api/articles
+  controller: Owl\Apps\Api\Controller\Article\ArticlePostController
+  defaults: { auth: false }
+  methods:  [POST]
