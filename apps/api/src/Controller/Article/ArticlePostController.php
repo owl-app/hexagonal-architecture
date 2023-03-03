@@ -8,7 +8,6 @@ use Owl\Article\Application\Create\CreateArticleCommand;
 use Owl\Shared\Infrastructure\Symfony\ApiController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Messenger\HandleTrait;
 
 final class ArticlePostController extends ApiController
 {
@@ -16,7 +15,7 @@ final class ArticlePostController extends ApiController
     {
         $payload = json_decode($request->getContent(), true);
 
-        $this->handleCommand(
+        $this->dispatch(
             new CreateArticleCommand(
                 (string) $payload['title'],
                 (string) $payload['description']
