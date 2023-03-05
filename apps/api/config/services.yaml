@@ -3,6 +3,10 @@ services:
     autoconfigure: true
     autowire: true
 
+  # Autowire
+  Owl\:
+    resource: '../../../src'
+
   Owl\Apps\Api\Controller\:
     resource: '../src/Controller'
     tags: ['controller.service_arguments']
@@ -18,6 +22,10 @@ services:
           tags:
               - { name: messenger.message_handler, bus: event.bus }
 
-  # Autowire
-  Owl\:
-    resource: '../../../src'
+  Owl\Shared\Infrastructure\Symfony\Http\ArgumentResolver\RequestDtoArgumentResolver:
+      tags:
+        - { name: controller.argument_value_resolver, priority: 50 }
+
+  Owl\Shared\Infrastructure\Symfony\EventListener\RequestValidationExceptionListener:
+      tags:
+        - { name: kernel.event_listener, event: kernel.exception, priority: 64 }

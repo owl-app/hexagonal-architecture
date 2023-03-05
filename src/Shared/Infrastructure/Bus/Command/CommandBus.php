@@ -14,17 +14,14 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 final class CommandBus implements CommandBusInterface
 {
-    use HandleTrait;
-
-    public function __construct(MessageBusInterface $messageBus)
+    public function __construct(private readonly MessageBusInterface $messageBus)
     {
-        $this->messageBus = $messageBus;
     }
 
     public function dispatch(CommandInterface $command): void
     {
         try {
-            $this->handle($command);
+            $this->messageBus->dispatch($command);
         } catch (NoHandlerForMessageException) {
             throw new CommandNotRegisteredError($command);
         } catch (HandlerFailedException $error) {

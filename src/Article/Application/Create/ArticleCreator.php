@@ -16,6 +16,7 @@ final class ArticleCreator
 
     public function __invoke(string $name, string $duration): void
     {
+        \sleep(10);
         $article = Article::create($name, $duration);
 
         $this->repository->save($article);

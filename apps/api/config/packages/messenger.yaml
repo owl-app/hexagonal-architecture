@@ -1,6 +1,16 @@
 framework:
     messenger:
         default_bus: command.bus
+        transports:
+            amqp_email_notification:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    vhost: '%env(MESSENGER_TRANSPORT_VHOST)%'
+                    exchange:
+                        name: email_notifications
+                        type: fanout
+                    queues:
+                        email_notifications: ~
         buses:
             command.bus:
                 middleware:
@@ -20,3 +30,5 @@ framework:
                     allow_no_senders: true
                 middleware:
                     - validation
+        routing:
+            Owl\Article\Application\Create\CreateArticleCommand: amqp_email_notification
