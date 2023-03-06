@@ -12,4 +12,7 @@ class CreateArticleRequestDto implements RequestDtoInterface
     public int $position;
 
     public $title;
+
+    /** @var CreateCommentRequestDto[] */
+    public $comment;
 }

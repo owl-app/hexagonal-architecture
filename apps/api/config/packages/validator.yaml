@@ -4,6 +4,7 @@ framework:
         mapping:
             paths:
                 - '%kernel.project_dir%/../../src/Article/Infrastructure/Validate/Article.yaml'
+                - '%kernel.project_dir%/../../src/Article/Infrastructure/Validate/ArticleComment.yaml'
 
         # Enables validator auto-mapping support.
         # For instance, basic validation constraints will be inferred from Doctrine's metadata.

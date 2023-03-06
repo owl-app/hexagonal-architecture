@@ -16,5 +16,5 @@ interface FilterInterface
 
     public function buildFilter(FilterBuilderInterface $filterBuilder): void;
 
-    public function buildQuery(FilterBuilderInterface $filterBuilder): void;
+    public function buildQuery(mixed $queryBuilder): void;
 }

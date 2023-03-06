@@ -7,6 +7,7 @@ namespace Owl\Shared\Infrastructure\DataProvider\Orm;
 use Owl\Shared\Domain\DataProvider\Filter\FilterBuilderInterface;
 use Owl\Shared\Domain\DataProvider\Filter\FilterFactoryBuilderInterface;
 use Owl\Shared\Domain\DataProvider\Registry\FilterRegistryInterface;
+use Owl\Shared\Domain\DataProvider\Type\DataProviderTypeInterface;
 
 class FilterFactoryBuilder implements FilterFactoryBuilderInterface
 {
@@ -14,14 +15,11 @@ class FilterFactoryBuilder implements FilterFactoryBuilderInterface
     {
     }
 
-    public function create(string $filter): FilterBuilderInterface
+    public function create(DataProviderTypeInterface $dataProviderType): FilterBuilderInterface
     {
         $filterBuilder = new FilterBuilder($this->registry);
 
-        if ($filter) {
-            $filterBuilder->add(null, $filter);
-        }
-
+        $dataProviderType->buildFilters($filterBuilder);
 
         return $filterBuilder;
     }

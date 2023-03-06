@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Apps\Api\Controller\Article;
 
-use Owl\Article\Application\Filter\ArticleSearchFilter;
+use Owl\Article\Application\DataProvider\ArticleSearchDataProvider;
 use Owl\Article\Domain\Repository\ArticleRepositoryInterface;
 use Owl\Shared\Domain\DataProvider\CollectionDataProviderInterface;
 use Owl\Shared\Infrastructure\Symfony\ApiController;
@@ -22,7 +22,7 @@ final class ArticleGetController extends ApiController
 
     public function __invoke(Request $request): JsonResponse
     {
-        $this->collectionDataProvider->get($this->repository, ArticleSearchFilter::class);
+        $this->collectionDataProvider->get($this->repository, new ArticleSearchDataProvider());
 
         return new JsonResponse(
             ['test' => 'test']

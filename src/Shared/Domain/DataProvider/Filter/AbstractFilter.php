@@ -34,7 +34,7 @@ abstract class AbstractFilter implements FilterInterface
     {
     }
 
-    public function buildQuery(FilterBuilderInterface $filterBuilder): void
+    public function buildQuery(mixed $queryBuilder): void
     {
     }
 }

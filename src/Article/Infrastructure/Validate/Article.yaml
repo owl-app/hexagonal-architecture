@@ -2,3 +2,5 @@ Owl\Article\Application\Dto\CreateArticleRequestDto:
   properties:
     title:
         - NotBlank: ~
+    comment:
+      - Valid: ~

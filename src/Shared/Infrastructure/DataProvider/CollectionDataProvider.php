@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Infrastructure\DataProvider;
 
+use Owl\Shared\Domain\DataProvider\Builder\DataProviderTypeBuilderInterface;
 use Owl\Shared\Domain\DataProvider\CollectionDataProviderInterface;
 use Owl\Shared\Domain\DataProvider\Filter\FilterFactoryBuilderInterface;
+use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 use Owl\Shared\Domain\Persistence\RepositoryInterface;
 
 final class CollectionDataProvider implements CollectionDataProviderInterface
@@ -13,34 +15,36 @@ final class CollectionDataProvider implements CollectionDataProviderInterface
     public function __construct(
         // private ResourceFilterApplicatorInterface $resourceFilterApplicator,
         // private QueryBuilderApplicatorInterface $queryBuilderApplicator,
-        private FilterFactoryBuilderInterface $filterFactory
+        private DataProviderTypeBuilderInterface $collectionTypeBuilder
     ) {
     }
 
-    public function get(RepositoryInterface $repository, string $filterBuilder, array $sorting = [], bool $isPaginated = false): array
+    public function get(RepositoryInterface $repository, CollectionTypeInterface $collectionType, array $sorting = [], bool $isPaginated = false): array
     {
         $queryBuilder = $repository->createQueryBuilder('o');
 
-        $filterBuilder = $this->filterFactory->create($filterBuilder);
+        return $this->collectionTypeBuilder->build($repository, $collectionType);
 
-        $all = $filterBuilder->all();
+        // $filterBuilder = $this->filterFactory->create($filterBuilder);
 
-        $result = $queryBuilder->getQuery()->getResult();
+        // $all = $filterBuilder->all();
 
-        // if ($criteria) {
-        //     $this->queryBuilderApplicator->applyFilters($queryBuilder, $repository->getClassName(), $criteria);
-        // }
+        // $result = $queryBuilder->getQuery()->getResult();
 
-        // if ($sorting) {
-        //     $this->queryBuilderApplicator->applySort($queryBuilder, $repository->getClassName(), $sorting);
-        // }
+        // // if ($criteria) {
+        // //     $this->queryBuilderApplicator->applyFilters($queryBuilder, $repository->getClassName(), $criteria);
+        // // }
 
-        // $this->resourceFilterApplicator->apply($queryBuilder, $repository->getClassName(), self::TYPE);
+        // // if ($sorting) {
+        // //     $this->queryBuilderApplicator->applySort($queryBuilder, $repository->getClassName(), $sorting);
+        // // }
 
-        // if ($isPaginated) {
-        //     return new Pagerfanta(new QueryAdapter($queryBuilder, false, false));
-        // }
+        // // $this->resourceFilterApplicator->apply($queryBuilder, $repository->getClassName(), self::TYPE);
 
-        return $result;
+        // // if ($isPaginated) {
+        // //     return new Pagerfanta(new QueryAdapter($queryBuilder, false, false));
+        // // }
+
+        // return $result;
     }
 }

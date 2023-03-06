@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Domain\DataProvider\Filter;
 
+use Owl\Shared\Domain\DataProvider\Type\DataProviderTypeInterface;
+
 interface FilterFactoryBuilderInterface
 {
-    public function create(string $filter): FilterBuilderInterface;
+    public function create(DataProviderTypeInterface $dataProviderType): FilterBuilderInterface;
 }

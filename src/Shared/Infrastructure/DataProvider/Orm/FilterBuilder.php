@@ -83,7 +83,7 @@ class FilterBuilder implements FilterBuilderInterface
 
     public function countUnresolved()
     {
-        return \count($this->children);
+        return \count($this->unresolvedChildren);
     }
 
     /**

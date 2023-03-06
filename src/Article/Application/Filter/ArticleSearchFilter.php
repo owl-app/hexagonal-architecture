@@ -10,30 +10,6 @@ use Owl\Shared\Infrastructure\DataProvider\Orm\Filter\StringFilter;
 
 final class ArticleSearchFilter extends AbstractFilter
 {
-    public const NAME = 'string';
-
-    public const TYPE_EQUAL = 'equal';
-
-    public const TYPE_NOT_EQUAL = 'not_equal';
-
-    public const TYPE_EMPTY = 'empty';
-
-    public const TYPE_NOT_EMPTY = 'not_empty';
-
-    public const TYPE_CONTAINS = 'contains';
-
-    public const TYPE_NOT_CONTAINS = 'not_contains';
-
-    public const TYPE_STARTS_WITH = 'starts_with';
-
-    public const TYPE_ENDS_WITH = 'ends_with';
-
-    public const TYPE_MEMBER_OF = 'member_of';
-
-    public const TYPE_IN = 'in';
-
-    public const TYPE_NOT_IN = 'not_in';
-
     public function buildFilter(FilterBuilderInterface $filterBuilder): void
     {
         $filterBuilder
@@ -41,9 +17,9 @@ final class ArticleSearchFilter extends AbstractFilter
         ;
     }
 
-    public function buildQuery(FilterBuilderInterface $filterBuilder): void
+    public function buildQuery(mixed $queryBuilder): void
     {
-
+        echo 'dziala';
     }
 
     // public function apply(DataSourceInterface $dataSource, string $name, $data, array $options): void

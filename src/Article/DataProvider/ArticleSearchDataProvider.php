@@ -2,46 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Owl\Shared\Infrastructure\DataProvider\Orm\Filter;
+namespace Owl\Article\Application\DataProvider;
 
 use Owl\Shared\Domain\DataProvider\Filter\AbstractFilter;
 use Owl\Shared\Domain\DataProvider\Filter\FilterBuilderInterface;
+use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
+use Owl\Shared\Infrastructure\DataProvider\Orm\Filter\StringFilter;
 
-final class StringFilter extends AbstractFilter
+final class ArticleSearchDataProvider implements CollectionTypeInterface
 {
-    public const NAME = 'string';
-
-    public const TYPE_EQUAL = 'equal';
-
-    public const TYPE_NOT_EQUAL = 'not_equal';
-
-    public const TYPE_EMPTY = 'empty';
-
-    public const TYPE_NOT_EMPTY = 'not_empty';
-
-    public const TYPE_CONTAINS = 'contains';
-
-    public const TYPE_NOT_CONTAINS = 'not_contains';
-
-    public const TYPE_STARTS_WITH = 'starts_with';
-
-    public const TYPE_ENDS_WITH = 'ends_with';
-
-    public const TYPE_MEMBER_OF = 'member_of';
-
-    public const TYPE_IN = 'in';
-
-    public const TYPE_NOT_IN = 'not_in';
-
-    public function buildFilter(FilterBuilderInterface $filterBuilder): void
+    public function buildFilters(FilterBuilderInterface $filterBuilder): void
     {
-        
+        $filterBuilder
+            ->add('name', StringFilter::class)
+        ;
     }
 
-    public function buildQuery(mixed $queryBuilder): void
+    public function getFields(): array
     {
-        $queryBuilder
-            ->andWhere('o.title = 1');
+
     }
 
     // public function apply(DataSourceInterface $dataSource, string $name, $data, array $options): void
