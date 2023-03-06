@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Apps\Api;
 
+use Owl\Shared\Infrastructure\Symfony\Compiler\RegisterDataProviderFilterPass;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -16,6 +17,11 @@ final class ApiKernel extends Kernel
     use MicroKernelTrait;
 
     private const CONFIG_EXTS = '.{xml,yaml}';
+
+    protected function build(ContainerBuilder $containerBuilder): void
+    {
+        $containerBuilder->addCompilerPass(new RegisterDataProviderFilterPass());
+    }
 
     public function registerBundles(): iterable
     {

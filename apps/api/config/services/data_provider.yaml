@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+  owl.registry.date_provider_filter:
+    class: Owl\Shared\Domain\DataProvider\Registry\FilterRegistry
+    arguments:
+      - 'Owl\Shared\Domain\DataProvider\Filter\FilterInterface'
+      - 'data provider filter'
+
+  owl.data_provider.doctrine.filter_factory_builder:
+    class: Owl\Shared\Infrastructure\DataProvider\Orm\FilterFactoryBuilder
+    arguments:
+      - '@owl.registry.date_provider_filter'
+
+  Owl\Shared\Domain\DataProvider\CollectionDataProviderInterface:
+    class: Owl\Shared\Infrastructure\DataProvider\CollectionDataProvider
+    arguments:
+      - '@owl.data_provider.doctrine.filter_factory_builder'

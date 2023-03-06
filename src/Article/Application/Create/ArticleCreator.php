@@ -10,13 +10,14 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 final class ArticleCreator
 {
-    public function __construct(private readonly ArticleRepositoryInterface $repository, private readonly MessageBusInterface $bus)
-    {
+    public function __construct(
+        private readonly ArticleRepositoryInterface $repository,
+        private readonly MessageBusInterface $bus
+    ) {
     }
 
     public function __invoke(string $name, string $duration): void
     {
-        \sleep(10);
         $article = Article::create($name, $duration);
 
         $this->repository->save($article);
