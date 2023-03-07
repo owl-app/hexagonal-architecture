@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Domain\DataProvider\Filter;
 
+use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
+
 interface FilterInterface
 {
     public function getPath(): string;
@@ -16,5 +18,5 @@ interface FilterInterface
 
     public function buildFilter(FilterBuilderInterface $filterBuilder): void;
 
-    public function buildQuery(mixed $queryBuilder): void;
+    public function buildQuery(mixed $queryBuilder, $data): void;
 }

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Article\Application\DataProvider;
 
-use Owl\Shared\Domain\DataProvider\Filter\AbstractFilter;
-use Owl\Shared\Domain\DataProvider\Filter\FilterBuilderInterface;
+use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
 use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Filter\StringFilter;
 

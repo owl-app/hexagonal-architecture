@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owl\Shared\Domain\DataProvider\Filter;
+namespace Owl\Shared\Domain\DataProvider\Builder;
 
 interface FilterBuilderInterface
 {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Owl\Shared\Infrastructure\DataProvider\Orm\Applicator;
 
 use Doctrine\ORM\QueryBuilder;
+use Owl\Shared\Shared\DataProvider\Applicator\FilterApplicatorInterface;
 
 class FilterApplicator implements FilterApplicatorInterface
 {
@@ -12,12 +13,14 @@ class FilterApplicator implements FilterApplicatorInterface
     {
     }
 
-    public function apply(array $filters): void
+    public function apply(array $filters, array $data): void
     {
         foreach ($filters as $filter) {
-            $this->resolveFieldByAddingJoins($filter->getPath());
+            $path = $filter->getPath();
+            $filterName = $filter->getOptions()['filter_name'] ?? $path;
+            $this->resolveFieldByAddingJoins($path);
 
-            $filter->buildQuery($this->queryBuilder);
+            $filter->buildQuery($this->queryBuilder, $data[$filterName] ?? null);
         }
     }
 

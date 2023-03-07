@@ -1,9 +1,8 @@
 <?php
 
- namespace Owl\Shared\Infrastructure\DataProvider\Orm;
+ namespace Owl\Shared\Domain\DataProvider\Builder;
 
 use Owl\Shared\Domain\DataProvider\Exception\InvalidArgumentException;
-use Owl\Shared\Domain\DataProvider\Filter\FilterBuilderInterface;
 use Owl\Shared\Domain\DataProvider\Filter\FilterInterface;
 use Owl\Shared\Domain\DataProvider\Registry\FilterRegistryInterface;
 
@@ -12,7 +11,7 @@ class FilterBuilder implements FilterBuilderInterface
     /**
      * The children of the form builder.
      *
-     * @var FormBuilderInterface[]
+     * @var FilterInterface[]
      */
     private $children = [];
 

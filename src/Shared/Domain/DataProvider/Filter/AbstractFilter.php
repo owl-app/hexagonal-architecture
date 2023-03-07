@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Domain\DataProvider\Filter;
 
+use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
+
 abstract class AbstractFilter implements FilterInterface
 {
     private string $path;
@@ -34,7 +36,7 @@ abstract class AbstractFilter implements FilterInterface
     {
     }
 
-    public function buildQuery(mixed $queryBuilder): void
+    public function buildQuery(mixed $queryBuilder, $data): void
     {
     }
 }

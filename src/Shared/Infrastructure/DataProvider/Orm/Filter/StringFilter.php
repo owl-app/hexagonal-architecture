@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Owl\Shared\Infrastructure\DataProvider\Orm\Filter;
 
 use Owl\Shared\Domain\DataProvider\Filter\AbstractFilter;
-use Owl\Shared\Domain\DataProvider\Filter\FilterBuilderInterface;
+use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
 
 final class StringFilter extends AbstractFilter
 {
@@ -38,7 +38,7 @@ final class StringFilter extends AbstractFilter
         
     }
 
-    public function buildQuery(mixed $queryBuilder): void
+    public function buildQuery(mixed $queryBuilder, $data): void
     {
         $queryBuilder
             ->andWhere('o.title = 1');

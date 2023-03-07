@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Article\Application\Filter;
 
+use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
 use Owl\Shared\Domain\DataProvider\Filter\AbstractFilter;
-use Owl\Shared\Domain\DataProvider\Filter\FilterBuilderInterface;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Filter\StringFilter;
 
 final class ArticleSearchFilter extends AbstractFilter
@@ -17,7 +17,7 @@ final class ArticleSearchFilter extends AbstractFilter
         ;
     }
 
-    public function buildQuery(mixed $queryBuilder): void
+    public function buildQuery(mixed $queryBuilder, $data): void
     {
         echo 'dziala';
     }

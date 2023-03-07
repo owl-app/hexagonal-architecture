@@ -24,7 +24,7 @@ services:
 
   Owl\Shared\Infrastructure\Symfony\Http\ArgumentResolver\RequestDtoArgumentResolver:
       tags:
-        - { name: controller.argument_value_resolver, priority: 50 }
+        - { name: controller.argument_value_resolver, priority: 64 }
 
   Owl\Shared\Infrastructure\Symfony\EventListener\RequestValidationExceptionListener:
       tags:
