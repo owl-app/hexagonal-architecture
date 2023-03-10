@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Owl\Shared\Infrastructure\DataProvider\Orm\Applicator;
 
 use Doctrine\ORM\QueryBuilder;
+use Owl\Shared\Domain\DataProvider\Builder\SortBuilder;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
-use Owl\Shared\Domain\DataProvider\Request\RequestParamsInterface;
 use Owl\Shared\Domain\DataProvider\Validation\SortingParametersValidator;
 use Owl\Shared\Domain\DataProvider\Validation\SortingParametersValidatorInterface;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Resolver\FieldResolverInterface;
-use Owl\Shared\Infrastructure\DataProvider\Type\OrmDataProviderTypeInterface;
+use Owl\Shared\Infrastructure\DataProvider\Orm\Type\CollectionTypeInterface;
 
-class SortApplicator implements ApplicatorInterface
+class SortApplicator implements CollectionApplicatorInterface
 {
     private SortingParametersValidatorInterface $sortingValidator;
 
@@ -21,13 +21,16 @@ class SortApplicator implements ApplicatorInterface
         $this->sortingValidator = $sortingValidator ?? new SortingParametersValidator();
     }
 
-    public function apply(QueryBuilder $queryBuilder, OrmDataProviderTypeInterface $collectionType, CollectionRequestParamsInterface|RequestParamsInterface $collectionRequestParams) : void
+    public function applyToCollection(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams) : void
     {
-        $sorts = $collectionRequestParams->getSort();
+        $sortBuilder = new SortBuilder($collectionRequestParams->getSorting());
+        $collectionType->buildSort($sortBuilder);
+
+        $sorts = $collectionRequestParams->getSort($sortBuilder->getParamName());
 
         if($sorts) {
             foreach($sorts as $property => $sort) {
-                if($this->sortingValidator->validateSortingParameters($sort)) {
+                if($this->sortingValidator->validateSortingParameters($sortBuilder->getAvailable(), $property, $sort)) {
                     $field = $this->fieldResolver->resolveFieldByAddingJoins($queryBuilder, $property);
                     $queryBuilder->addOrderBy($field, $sort);
                 }

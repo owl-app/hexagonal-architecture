@@ -4,21 +4,31 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Infrastructure\DataProvider;
 
-use Owl\Shared\Domain\DataProvider\Builder\DataProviderTypeBuilderInterface;
 use Owl\Shared\Domain\DataProvider\CollectionDataProviderInterface;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
-use Owl\Shared\Domain\DataProvider\Type\DataProviderTypeInterface;
-use Owl\Shared\Domain\Persistence\RepositoryInterface;
+use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
+use Owl\Shared\Infrastructure\DataProvider\Orm\Factory\QueryBuilderFactoryInterface;
 
 final class CollectionDataProvider implements CollectionDataProviderInterface
 {
     public function __construct(
-        private DataProviderTypeBuilderInterface $collectionTypeBuilder
+        private readonly QueryBuilderFactoryInterface $queryBuildeFactory,
+        private readonly iterable $applicators
     ) {
     }
 
-    public function get(string $dataClass, DataProviderTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams): array
+    public function get(string $dataClass, CollectionTypeInterface $dataProviderType, CollectionRequestParamsInterface $collectionRequestParams): array
     {
-        return $this->collectionTypeBuilder->build($dataClass, $collectionType, $collectionRequestParams);
+        $queryBuilder = $this->queryBuildeFactory->create($dataClass, $dataProviderType);
+
+        foreach($this->applicators as $applicator) {
+            $applicator->applyToCollection($queryBuilder, $dataProviderType, $collectionRequestParams);
+        }
+
+        $requltQuery = $queryBuilder->getQuery();
+
+        $result = $queryBuilder->getQuery()->getResult();
+
+        return $queryBuilder->getQuery()->getResult();
     }
 }

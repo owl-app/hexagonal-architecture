@@ -6,5 +6,5 @@ namespace Owl\Shared\Domain\DataProvider\Validation;
 
 interface SortingParametersValidatorInterface
 {
-    public function validateSortingParameters(string $typeSorting): bool;
+    public function validateSortingParameters(array $available, string $field, string $typeSorting): bool;
 }

@@ -6,12 +6,11 @@ namespace Owl\Shared\Infrastructure\DataProvider\Orm\Applicator;
 
 use Doctrine\ORM\QueryBuilder;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
-use Owl\Shared\Domain\DataProvider\Request\RequestParamsInterface;
-use Owl\Shared\Infrastructure\DataProvider\Type\OrmDataProviderTypeInterface;
+use Owl\Shared\Infrastructure\DataProvider\Orm\Type\CollectionTypeInterface;
 
-class PaginationApplicator implements ApplicatorInterface
+class PaginationApplicator implements CollectionApplicatorInterface
 {
-    public function apply(QueryBuilder $queryBuilder, OrmDataProviderTypeInterface $collectionType, CollectionRequestParamsInterface|RequestParamsInterface $collectionRequestParams) : void
+    public function applyToCollection(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams) : void
     {
         if (!$collectionRequestParams->hasPagination()) {
             return;

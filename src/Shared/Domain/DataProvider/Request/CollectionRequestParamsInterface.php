@@ -8,7 +8,7 @@ interface CollectionRequestParamsInterface
 {
     public function getDataFilters(): array;
 
-    public function getSort(): array;
+    public function getSort(string $paramName): array;
 
     public function getPerPage(): int;
  

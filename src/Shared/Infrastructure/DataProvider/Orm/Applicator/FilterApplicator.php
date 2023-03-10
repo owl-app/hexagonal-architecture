@@ -9,18 +9,17 @@ use Owl\Infrasctructure\Domain\DataProvider\Orm\Util\QueryNameGenerator;
 use Owl\Shared\Domain\DataProvider\Builder\FilterBuilder;
 use Owl\Shared\Domain\DataProvider\Registry\FilterRegistryInterface;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
-use Owl\Shared\Domain\DataProvider\Request\RequestParamsInterface;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Resolver\FieldResolverInterface;
-use Owl\Shared\Infrastructure\DataProvider\Type\OrmDataProviderTypeInterface;
+use Owl\Shared\Infrastructure\DataProvider\Orm\Type\CollectionTypeInterface;
 
-class FilterApplicator implements ApplicatorInterface
+class FilterApplicator implements CollectionApplicatorInterface
 {
     public function __construct(private readonly FieldResolverInterface $fieldResolver, private readonly FilterRegistryInterface $registry)
     {
         
     }
 
-    public function apply(QueryBuilder $queryBuilder, OrmDataProviderTypeInterface $collectionType, CollectionRequestParamsInterface|RequestParamsInterface $collectionRequestParams) : void
+    public function applyToCollection(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams) : void
     {
         $filterBuilder = new FilterBuilder($this->registry);
         $queryNameGenerator = new QueryNameGenerator();

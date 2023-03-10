@@ -5,16 +5,11 @@ services:
       - 'Owl\Shared\Domain\DataProvider\Filter\FilterInterface'
       - 'data provider filter'
 
-  owl.data_provider.doctrine.collection_type_builder:
-    class: Owl\Shared\Infrastructure\DataProvider\Orm\Builder\CollectionTypeBuilder
-    arguments:
-      - '@owl.data_provider.doctrine.orm.factory_query_builder'
-      - !tagged_iterator data_provider.doctrine.orm.applicator.collection
-
   Owl\Shared\Domain\DataProvider\CollectionDataProviderInterface:
     class: Owl\Shared\Infrastructure\DataProvider\CollectionDataProvider
     arguments:
-      - '@owl.data_provider.doctrine.collection_type_builder'
+      - '@owl.data_provider.doctrine.orm.factory_query_builder'
+      - !tagged_iterator data_provider.doctrine.orm.applicator.collection
 
   owl.data_provider.doctrine.request_params_factory:
     class: Owl\Shared\Domain\DataProvider\Factory\RequestParamsFactory

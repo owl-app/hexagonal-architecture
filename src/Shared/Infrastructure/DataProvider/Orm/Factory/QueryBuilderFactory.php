@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Owl\Shared\Infrastructure\DataProvider\Orm\Factory;
 
 use Doctrine\ORM\QueryBuilder;
-use Owl\Shared\Infrastructure\DataProvider\Type\OrmDataProviderTypeInterface;
+use Owl\Shared\Infrastructure\DataProvider\Orm\Type\CollectionTypeInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Owl\Shared\Domain\DataProvider\Exception\RuntimeException;
 
@@ -15,7 +15,7 @@ class QueryBuilderFactory implements QueryBuilderFactoryInterface
     {
     }
 
-    public function create(string $dataClass, OrmDataProviderTypeInterface $collectionType): QueryBuilder
+    public function create(string $dataClass, CollectionTypeInterface $collectionType): QueryBuilder
     {
         /** @var EntityManagerInterface $manager */
         $manager = $this->managerRegistry->getManagerForClass($dataClass);

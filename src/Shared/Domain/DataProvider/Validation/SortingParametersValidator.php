@@ -6,9 +6,9 @@ namespace Owl\Shared\Domain\DataProvider\Validation;
 
 final class SortingParametersValidator implements SortingParametersValidatorInterface
 {
-    public function validateSortingParameters(string $typeSorting): bool
+    public function validateSortingParameters(array $available, string $field, string $typeSorting): bool
     {
-        if (!in_array($typeSorting, ['asc', 'desc'])) {
+        if (!in_array($field, $available) || !in_array($typeSorting, ['asc', 'desc'])) {
             return false;
         }
 

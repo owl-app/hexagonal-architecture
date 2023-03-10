@@ -44,16 +44,10 @@ class CollectionRequestParams extends RequestParams implements CollectionRequest
       return [];
    }
 
-   public function getSort(): array
+   public function getSort(string $paramName): array
    {
-      $sortName = $this->getSortName();
-
-      if (isset($this->query[$sortName])) {
-         return $this->query[$sortName];
-      }
-
-      if(isset($this->parameters['sorting']['default_sort'])) {
-         return $this->parameters['default_sort'];
+      if (isset($this->query[$paramName])) {
+         return $this->query[$paramName];
       }
 
       return [];
@@ -95,17 +89,6 @@ class CollectionRequestParams extends RequestParams implements CollectionRequest
       }
 
       return 'filters';
-   }
-
-   private function getSortName(): string
-   {
-      $pagination = $this->getSorting();
-
-      if($pagination && isset($pagination['param_sort_name'])) {
-         return $pagination['param_sort_name'];
-      }
-
-      return 'sort';
    }
 
    private function getPerPageName(): string

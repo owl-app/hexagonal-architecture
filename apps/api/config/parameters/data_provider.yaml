@@ -1,7 +1,7 @@
 parameters:
     data_provider:
       sorting: 
-        param_sort_name: sort
+        param_name: sort
       pagination:
         param_filter_name: filters
         param_per_page_name: per-page

@@ -22,7 +22,7 @@ final class RequestParamsFactory implements RequestParamsFactoryInterface
             throw new InvalidArgumentException(sprintf('<%s> must implements Owl\Shared\Domain\DataProvider\Request\RequestParamsInterface', $class));
         }
 
-        $parameters = array_merge($this->defaultParameters, $parameters);
+        $parameters = array_merge_recursive($this->defaultParameters, $parameters);
         // $parameters = $this->parametersParser->parseRequestValues($parameters, $request);
 
         /** @psalm-suppress UnsafeInstantiation */
