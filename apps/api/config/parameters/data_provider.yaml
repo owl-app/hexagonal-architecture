@@ -1,7 +1,8 @@
 parameters:
     data_provider:
+      sorting: 
+        param_sort_name: sort
       pagination:
         param_filter_name: filters
-        param_order_name: order
         limit: 20
         per_page: 20

@@ -1,8 +1,13 @@
 article_get:
   path: /api/articles
   controller: Owl\Apps\Api\Controller\Article\ArticleGetController
-  defaults: { auth: false }
   methods:  [GET]
+  defaults:
+    auth: false
+    data_provider:
+      default_sort:
+        title: desc
+
 article_post:
   path: /api/articles
   controller: Owl\Apps\Api\Controller\Article\ArticlePostController

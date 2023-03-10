@@ -6,6 +6,9 @@ namespace Owl\Shared\Infrastructure\DataProvider\Orm\Filter;
 
 use Owl\Shared\Domain\DataProvider\Filter\AbstractFilter;
 use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
+use Doctrine\ORM\QueryBuilder;
+use Owl\Shared\Domain\DataProvider\Exception\InvalidArgumentException;
+use Owl\Shared\Domain\DataProvider\Util\QueryNameGeneratorInterface;
 
 final class StringFilter extends AbstractFilter
 {
@@ -33,91 +36,84 @@ final class StringFilter extends AbstractFilter
 
     public const TYPE_NOT_IN = 'not_in';
 
-    public function buildFilter(FilterBuilderInterface $filterBuilder): void
+    public function buildQuery(mixed $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, $data, array $fieldAliases): void
     {
-        
+        $value = is_array($data) ? $data['value'] ?? null : $data;
+        $type = $data['type'] ?? ($options['type'] ?? self::TYPE_CONTAINS);
+
+        if (1 === count($fieldAliases)) {
+            $queryBuilder->andWhere($this->getExpression($queryBuilder, $queryNameGenerator, $type, current($fieldAliases), $value));
+
+            return;
+        }
+
+        foreach ($fieldAliases as $field) {
+            $expressions[] = $this->getExpression($queryBuilder, $queryNameGenerator, $type, $field, $value);
+        }
+
+        if (self::TYPE_NOT_EQUAL === $type) {
+            $queryBuilder->andWhere(
+                $queryBuilder->expr()->andX(...$expressions)
+            );
+
+            return;
+        }
+
+        $queryBuilder->andWhere(
+            $queryBuilder->expr()->orX(...$expressions)
+        );
     }
 
-    public function buildQuery(mixed $queryBuilder, $data): void
-    {
-        $queryBuilder
-            ->andWhere('o.title = 1');
+    private function getExpression(
+        QueryBuilder $queryBuilder,
+        QueryNameGeneratorInterface $queryNameGenerator,
+        string $type,
+        string $field,
+        $value,
+    ) {
+        switch ($type) {
+            case self::TYPE_EQUAL:
+                $parameterName = $queryNameGenerator->generateParameterName($field);
+                $queryBuilder->setParameter($parameterName, $value);
+
+                return $queryBuilder->expr()->eq($field, ':' . $parameterName);
+            case self::TYPE_NOT_EQUAL:
+                $parameterName = $queryNameGenerator->generateParameterName($field);
+                $queryBuilder->setParameter($parameterName, $value);
+
+                return $queryBuilder->expr()->neq($field, ':' . $parameterName);
+            case self::TYPE_EMPTY:
+                return $queryBuilder->expr()->isNull($field);
+            case self::TYPE_NOT_EMPTY:
+                return $queryBuilder->expr()->isNotNull($field);
+            case self::TYPE_CONTAINS:
+                return $queryBuilder->expr()->like(
+                    (string) $queryBuilder->expr()->lower($field),
+                    $queryBuilder->expr()->literal(strtolower('%' . $value . '%')),
+                );
+            case self::TYPE_NOT_CONTAINS:
+                return $queryBuilder->expr()->notLike(
+                    (string) $queryBuilder->expr()->lower($field),
+                    $queryBuilder->expr()->literal(strtolower('%' . $value . '%')),
+                );
+            case self::TYPE_STARTS_WITH:
+                return $queryBuilder->expr()->like(
+                    (string) $queryBuilder->expr()->lower($field),
+                    $queryBuilder->expr()->literal(strtolower($value . '%')),
+                );
+            case self::TYPE_ENDS_WITH:
+                return $queryBuilder->expr()->like(
+                    (string) $queryBuilder->expr()->lower($field),
+                    $queryBuilder->expr()->literal(strtolower('%' . $value)),
+                );
+            case self::TYPE_IN:
+                return $queryBuilder->expr()->in($field, array_map('trim', explode(',', $value)));
+            case self::TYPE_NOT_IN:
+                return $queryBuilder->expr()->notIn($field, array_map('trim', explode(',', $value)));
+            case self::TYPE_MEMBER_OF:
+                return $queryBuilder->expr()->isMemberOf($value, $field);
+            default:
+                throw new InvalidArgumentException(sprintf('Could not get an expression for type "%s"!', $type));
+        }
     }
-
-    // public function apply(DataSourceInterface $dataSource, string $name, $data, array $options): void
-    // {
-    //     $expressionBuilder = $dataSource->getExpressionBuilder();
-
-    //     $value = is_array($data) ? $data['value'] ?? null : $data;
-    //     $type = $data['type'] ?? ($options['type'] ?? self::TYPE_CONTAINS);
-    //     $fields = $options['fields'] ?? [$name];
-
-    //     if (!in_array($type, [self::TYPE_NOT_EMPTY, self::TYPE_EMPTY], true) && '' === trim((string) $value)) {
-    //         return;
-    //     }
-
-    //     if (1 === count($fields)) {
-    //         $dataSource->restrict($this->getExpression($expressionBuilder, $type, current($fields), $value));
-
-    //         return;
-    //     }
-
-    //     $expressions = [];
-    //     foreach ($fields as $field) {
-    //         $expressions[] = $this->getExpression($expressionBuilder, $type, $field, $value);
-    //     }
-
-    //     if (self::TYPE_NOT_EQUAL === $type) {
-    //         $dataSource->restrict($expressionBuilder->andX(...$expressions));
-
-    //         return;
-    //     }
-
-    //     $dataSource->restrict($expressionBuilder->orX(...$expressions));
-    // }
-
-    // /**
-    //  * @param mixed $value
-    //  *
-    //  * @return mixed
-    //  *
-    //  * @throws \InvalidArgumentException
-    //  */
-    // private function getExpression(
-    //     ExpressionBuilderInterface|MemberOfAwareExpressionBuilderInterface $expressionBuilder,
-    //     string $type,
-    //     string $field,
-    //     $value,
-    // ) {
-    //     switch ($type) {
-    //         case self::TYPE_EQUAL:
-    //             return $expressionBuilder->equals($field, $value);
-    //         case self::TYPE_NOT_EQUAL:
-    //             return $expressionBuilder->notEquals($field, $value);
-    //         case self::TYPE_EMPTY:
-    //             return $expressionBuilder->isNull($field);
-    //         case self::TYPE_NOT_EMPTY:
-    //             return $expressionBuilder->isNotNull($field);
-    //         case self::TYPE_CONTAINS:
-    //             return $expressionBuilder->like($field, '%' . $value . '%');
-    //         case self::TYPE_NOT_CONTAINS:
-    //             return $expressionBuilder->notLike($field, '%' . $value . '%');
-    //         case self::TYPE_STARTS_WITH:
-    //             return $expressionBuilder->like($field, $value . '%');
-    //         case self::TYPE_ENDS_WITH:
-    //             return $expressionBuilder->like($field, '%' . $value);
-    //         case self::TYPE_IN:
-    //             return $expressionBuilder->in($field, array_map('trim', explode(',', $value)));
-    //         case self::TYPE_NOT_IN:
-    //             return $expressionBuilder->notIn($field, array_map('trim', explode(',', $value)));
-    //         case self::TYPE_MEMBER_OF:
-    //             if (method_exists($expressionBuilder, 'memberOf')) {
-    //                 return $expressionBuilder->memberOf($value, $field);
-    //             }
-
-    //             throw new \InvalidArgumentException(sprintf('The memberOf method is not supported by %s', get_class($expressionBuilder)));
-    //         default:
-    //             throw new \InvalidArgumentException(sprintf('Could not get an expression for type "%s"!', $type));
-    //     }
-    // }
 }

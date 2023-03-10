@@ -7,7 +7,7 @@ namespace Owl\Shared\Infrastructure\DataProvider;
 use Owl\Shared\Domain\DataProvider\Builder\DataProviderTypeBuilderInterface;
 use Owl\Shared\Domain\DataProvider\CollectionDataProviderInterface;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
-use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
+use Owl\Shared\Domain\DataProvider\Type\DataProviderTypeInterface;
 use Owl\Shared\Domain\Persistence\RepositoryInterface;
 
 final class CollectionDataProvider implements CollectionDataProviderInterface
@@ -17,8 +17,8 @@ final class CollectionDataProvider implements CollectionDataProviderInterface
     ) {
     }
 
-    public function get(RepositoryInterface $repository, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams): array
+    public function get(string $dataClass, DataProviderTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams): array
     {
-        return $this->collectionTypeBuilder->build($repository, $collectionType, $collectionRequestParams);
+        return $this->collectionTypeBuilder->build($dataClass, $collectionType, $collectionRequestParams);
     }
 }

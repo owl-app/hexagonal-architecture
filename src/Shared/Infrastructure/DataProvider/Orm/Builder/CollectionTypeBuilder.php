@@ -10,31 +10,33 @@ use Owl\Shared\Domain\DataProvider\Builder\FilterBuilder;
 use Owl\Shared\Domain\DataProvider\Registry\FilterRegistryInterface;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
 use Owl\Shared\Domain\DataProvider\Type\DataProviderTypeInterface;
-use Owl\Shared\Domain\Persistence\RepositoryInterface;
+
+use Doctrine\ORM\EntityManagerInterface;
+use Owl\Shared\Domain\DataProvider\Exception\RuntimeException;
+use Owl\Shared\Infrastructure\DataProvider\Orm\Factory\QueryBuilderFactoryInterface;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Applicator\FilterApplicator;
+use Owl\Shared\Infrastructure\DataProvider\Type\OrmDataProviderTypeInterface;
 
 class CollectionTypeBuilder implements DataProviderTypeBuilderInterface
 {
     public function __construct(
-        private readonly FilterRegistryInterface $registry
+        private readonly QueryBuilderFactoryInterface $queryBuildeFactory,
+        private readonly iterable $applicators
     ) {
     }
 
-    public function build(RepositoryInterface $repository, DataProviderTypeInterface $dataProviderType, CollectionRequestParamsInterface $collectionRequestParams): array
+    public function build(string $dataClass, OrmDataProviderTypeInterface|DataProviderTypeInterface $dataProviderType, CollectionRequestParamsInterface $collectionRequestParams): array
     {
-        $queryBuilder = $repository->createQueryBuilder('o');
+        $queryBuilder = $this->queryBuildeFactory->create($dataClass, $dataProviderType);
 
-        $this->buildFilters($queryBuilder, $dataProviderType, $collectionRequestParams->getDataFilters());
+        foreach($this->applicators as $applicator) {
+            $applicator->apply($queryBuilder, $dataProviderType, $collectionRequestParams);
+        }
+
+        $requltQuery = $queryBuilder->getQuery();
+
+        $result = $queryBuilder->getQuery()->getResult();
 
         return $queryBuilder->getQuery()->getResult();
-    }
-
-    private function buildFilters(QueryBuilder $queryBuilder, DataProviderTypeInterface $dataProviderType, array $dataFilters): void
-    {
-        $filterBuilder = new FilterBuilder($this->registry);
-        $filterApplicator = new FilterApplicator($queryBuilder);
-
-        $dataProviderType->buildFilters($filterBuilder);
-        $filterApplicator->apply($filterBuilder->all(), $dataFilters);
     }
 }

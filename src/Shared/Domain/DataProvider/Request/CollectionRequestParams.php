@@ -17,6 +17,39 @@ class CollectionRequestParams extends RequestParams implements CollectionRequest
       return [];
    }
 
+   public function getPagination(): array
+   {
+      if(isset($this->parameters['pagination'])) {
+         return $this->parameters['pagination'];
+      }
+
+      return [];
+   }
+
+   public function getSorting(): array
+   {
+      if(isset($this->parameters['sorting'])) {
+         return $this->parameters['sorting'];
+      }
+
+      return [];
+   }
+
+   public function getSort(): array
+   {
+      $sortName = $this->getSortName();
+
+      if (isset($this->query[$sortName])) {
+         return $this->query[$sortName];
+      }
+
+      if(isset($this->parameters['default_sort'])) {
+         return $this->parameters['default_sort'];
+      }
+
+      return [];
+   }
+
    private function getFilterName(): string
    {
       $pagination = $this->getPagination();
@@ -28,12 +61,14 @@ class CollectionRequestParams extends RequestParams implements CollectionRequest
       return 'filters';
    }
 
-   public function getPagination(): array
+   private function getSortName(): string
    {
-      if(isset($this->parameters['pagination'])) {
-         return $this->parameters['pagination'];
+      $pagination = $this->getSorting();
+
+      if($pagination && isset($pagination['param_sort_name'])) {
+         return $pagination['param_sort_name'];
       }
 
-      return [];
+      return 'sort';
    }
 }

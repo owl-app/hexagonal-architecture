@@ -6,7 +6,7 @@ namespace Owl\Shared\Domain\DataProvider\Builder;
 
 interface FilterBuilderInterface
 {
-    public function add(string $name, string $filter, array $options = []);
+    public function add(string $name = null, string $filter, string|array $fields = null, array $options = []): self;
 
     public function get(string $name);
 

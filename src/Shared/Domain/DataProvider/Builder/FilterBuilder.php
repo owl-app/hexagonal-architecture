@@ -22,16 +22,20 @@ class FilterBuilder implements FilterBuilderInterface
      */
     private $unresolvedChildren = [];
 
-    private ?string $path;
-
     public function __construct(private readonly FilterRegistryInterface $registry)
     {
     }
 
-    public function add(?string $path = null, string $filter, array $options = [])
+    public function add(string $name = null, string $filter, string|array $fields = null, array $options = []): self
     {
-        $this->children[$filter] = null;
-        $this->unresolvedChildren[$filter] = [$path, $options];
+        if(is_null($fields)) {
+            $filterFields = [$name];
+        } else {
+            $filterFields = is_string($fields) ? [$fields] : $fields;
+        }
+
+        $this->children[$name] = null;
+        $this->unresolvedChildren[$name] = [$filter, $filterFields, $options];
 
         return $this;
     }
@@ -92,14 +96,14 @@ class FilterBuilder implements FilterBuilderInterface
     {
         if($this->countUnresolved() > 0) {
             foreach($this->unresolvedChildren as $name => $info) {
+                $classFilter = $this->registry->get($info[0]);
                 /**
                  * @var FilterInterface $filterService
                  */
-                $filterService = $this->registry->get($name);
-                if($info[0]) {
-                    $filterService->setPath($info[0]);
-                }
-                $filterService->setOptions($info[1]);
+                $filterService = new $classFilter;
+                $filterService->setName($name);
+                $filterService->setFields($info[1]);
+                $filterService->setOptions($info[2]);
                 $filterService->buildFilter($this);
 
                 $this->children[$name] = $filterService;

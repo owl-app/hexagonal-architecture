@@ -8,18 +8,30 @@ use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
 
 abstract class AbstractFilter implements FilterInterface
 {
-    private string $path;
+    private string $name;
+
+    private array $fields = [];
 
     private array $options = [];
 
-    public function getPath(): string
+    public function getName(): string
     {
-        return $this->path;
+        return $this->name;
     }
 
-    public function setPath(string $path): void
+    public function setName(string $name): void
     {
-        $this->path = $path;
+        $this->name = $name;
+    }
+
+    public function getFields(): array
+    {
+        return $this->fields;
+    }
+
+    public function setFields(array $fields): void
+    {
+        $this->fields = $fields;
     }
 
     public function getOptions(): array
@@ -33,10 +45,6 @@ abstract class AbstractFilter implements FilterInterface
     }
 
     public function buildFilter(FilterBuilderInterface $filterBuilder): void
-    {
-    }
-
-    public function buildQuery(mixed $queryBuilder, $data): void
     {
     }
 }

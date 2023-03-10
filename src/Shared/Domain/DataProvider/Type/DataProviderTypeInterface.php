@@ -8,7 +8,5 @@ use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
 
 interface DataProviderTypeInterface
 {
-    public function getFields(): array;
-
     public function buildFilters(FilterBuilderInterface $filterBuilder): void;
 }
