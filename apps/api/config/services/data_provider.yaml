@@ -42,6 +42,11 @@ services:
     tags:
       - { name: data_provider.doctrine.orm.applicator.collection, priority: -96 }
 
+  owl.data_provider.doctrine.orm.pagination_applicator:
+    class: Owl\Shared\Infrastructure\DataProvider\Orm\Applicator\PaginationApplicator
+    tags:
+      - { name: data_provider.doctrine.orm.applicator.collection, priority: -128 }
+
   Owl\Shared\Infrastructure\Symfony\Http\ArgumentResolver\RequestDataProviderParamsResolver:
       arguments:
         - '@owl.data_provider.doctrine.request_params_factory'

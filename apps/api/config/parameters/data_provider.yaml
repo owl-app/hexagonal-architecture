@@ -4,5 +4,6 @@ parameters:
         param_sort_name: sort
       pagination:
         param_filter_name: filters
-        limit: 20
-        per_page: 20
+        param_per_page_name: per-page
+        param_page_name: page
+        default_per_page: 20

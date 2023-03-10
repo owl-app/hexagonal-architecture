@@ -5,8 +5,9 @@ article_get:
   defaults:
     auth: false
     data_provider:
-      default_sort:
-        title: desc
+      sorting:
+        default_sort:
+          title: desc
 
 article_post:
   path: /api/articles
