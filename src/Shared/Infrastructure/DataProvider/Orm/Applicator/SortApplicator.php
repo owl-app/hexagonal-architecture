@@ -10,7 +10,7 @@ use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
 use Owl\Shared\Domain\DataProvider\Validation\SortingParametersValidator;
 use Owl\Shared\Domain\DataProvider\Validation\SortingParametersValidatorInterface;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Resolver\FieldResolverInterface;
-use Owl\Shared\Infrastructure\DataProvider\Orm\Type\CollectionTypeInterface;
+use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 
 class SortApplicator implements CollectionApplicatorInterface
 {

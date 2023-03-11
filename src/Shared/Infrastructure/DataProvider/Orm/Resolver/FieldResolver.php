@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Owl\Shared\Infrastructure\DataProvider\Orm\Resolver;
 
 use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\Query\Expr\From;
+use Doctrine\ORM\Query\Expr\Join;
 use Owl\Shared\Domain\DataProvider\Exception\RuntimeException;
 
 class FieldResolver implements FieldResolverInterface
@@ -51,20 +53,6 @@ class FieldResolver implements FieldResolverInterface
         return $field;
     }
 
-    /**
-     * This method returns an absolute path of a property path and the FQCN of the root element.
-     *
-     * Given the following query:
-     *
-     * SELECT bo FROM App\Book bo INNER JOIN App\Author au ON bo.author_id = au.id
-     *
-     * It will behave as follows:
-     *
-     * bo.title => [book.title, App\Book]
-     * title => [book.title, App\Book]
-     * au => [book.author, App\Book]
-     * au.name => [book.author.name, App\Book]
-     */
     private function getFieldDetails(QueryBuilder $queryBuilder, string $field): array
     {
         $rootField = explode('.', $field)[0];

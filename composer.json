@@ -80,5 +80,8 @@
             "allow-contrib": false,
             "require": "6.2.*"
         }
+    },
+    "require-dev": {
+        "vimeo/psalm": "^5.8"
     }
 }

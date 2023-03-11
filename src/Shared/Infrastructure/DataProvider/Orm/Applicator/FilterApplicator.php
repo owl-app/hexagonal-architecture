@@ -10,7 +10,7 @@ use Owl\Shared\Domain\DataProvider\Builder\FilterBuilder;
 use Owl\Shared\Domain\DataProvider\Registry\FilterRegistryInterface;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Resolver\FieldResolverInterface;
-use Owl\Shared\Infrastructure\DataProvider\Orm\Type\CollectionTypeInterface;
+use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 
 class FilterApplicator implements CollectionApplicatorInterface
 {
@@ -33,7 +33,7 @@ class FilterApplicator implements CollectionApplicatorInterface
                 $resolvedFields[$field] = $this->fieldResolver->resolveFieldByAddingJoins($queryBuilder, $field);
             }
 
-            $filter->buildQuery($queryBuilder, $queryNameGenerator, $data[$name] ?? null, $resolvedFields);
+            $filter->buildQuery($queryBuilder, $queryNameGenerator, $data[$name] ?? null, $resolvedFields, $filter->getOptions());
         }
     }
 }

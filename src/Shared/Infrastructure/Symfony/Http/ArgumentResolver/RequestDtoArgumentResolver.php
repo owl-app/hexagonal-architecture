@@ -34,7 +34,7 @@ class RequestDtoArgumentResolver implements ValueResolverInterface
         );
 
         $content = $request->getContent();
-        $contentDecoded = json_decode($content ?? '', true) ?? [];
+        $contentDecoded = json_decode($content, true) ?? [];
         $payload = array_merge($request->request->all(), $request->query->all(), $request->files->all(), $headers, $contentDecoded);
 
         $request = $this->serializer->denormalize($payload, $argument->getType(), null, [

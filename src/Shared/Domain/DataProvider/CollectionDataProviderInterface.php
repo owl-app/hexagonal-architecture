@@ -9,5 +9,8 @@ use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 
 interface CollectionDataProviderInterface
 {
-    public function get(string $dataClass, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams): array;
+    /**
+     * @param class-string $dataClass A persistent object class name.
+     */
+    public function get(string $dataClass, CollectionTypeInterface $dataProviderType, CollectionRequestParamsInterface $collectionRequestParams): array;
 }

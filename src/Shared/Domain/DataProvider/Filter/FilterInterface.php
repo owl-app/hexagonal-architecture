@@ -23,5 +23,5 @@ interface FilterInterface
 
     public function buildFilter(FilterBuilderInterface $filterBuilder): void;
 
-    public function buildQuery(mixed $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, $data, array $fields): void;
+    public function buildQuery(mixed $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, mixed $data, array $fieldAliases, array $options): void;
 }

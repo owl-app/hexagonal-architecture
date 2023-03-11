@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Infrastructure\DataProvider\Orm\Factory;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
-use Owl\Shared\Infrastructure\DataProvider\Orm\Type\CollectionTypeInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Owl\Shared\Domain\DataProvider\Exception\RuntimeException;
+use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
+use Owl\Shared\Infrastructure\DataProvider\Orm\Type\BuildableQueryBuilderInterface;
 
 class QueryBuilderFactory implements QueryBuilderFactoryInterface
 {
@@ -15,7 +17,7 @@ class QueryBuilderFactory implements QueryBuilderFactoryInterface
     {
     }
 
-    public function create(string $dataClass, CollectionTypeInterface $collectionType): QueryBuilder
+    public function create(string $dataClass, BuildableQueryBuilderInterface|CollectionTypeInterface $collectionType): QueryBuilder
     {
         /** @var EntityManagerInterface $manager */
         $manager = $this->managerRegistry->getManagerForClass($dataClass);
@@ -27,7 +29,9 @@ class QueryBuilderFactory implements QueryBuilderFactoryInterface
 
         $queryBuilder = $repository->createQueryBuilder('o');
 
-        $collectionType->buildQueryBuilder($queryBuilder);
+        if($collectionType instanceof BuildableQueryBuilderInterface) {
+            $collectionType->buildQueryBuilder($queryBuilder);
+        }
 
         return $queryBuilder;
     }

@@ -34,13 +34,12 @@ class FilterBuilder implements FilterBuilderInterface
             $filterFields = is_string($fields) ? [$fields] : $fields;
         }
 
-        $this->children[$name] = null;
         $this->unresolvedChildren[$name] = [$filter, $filterFields, $options];
 
         return $this;
     }
 
-    public function get($name)
+    public function get(string $name): FilterInterface
     {
         if (isset($this->unresolvedChildren[$name])) {
             $this->resolveChildren();
@@ -53,14 +52,14 @@ class FilterBuilder implements FilterBuilderInterface
         throw new InvalidArgumentException(sprintf('The child with the name "%s" does not exist.', $name));
     }
 
-    public function remove($name)
+    public function remove(string $name): self
     {
         unset($this->unresolvedChildren[$name], $this->children[$name]);
 
         return $this;
     }
 
-    public function has($name)
+    public function has(string $name): bool
     {
         return isset($this->unresolvedChildren[$name]) || isset($this->children[$name]);
     }
@@ -68,7 +67,7 @@ class FilterBuilder implements FilterBuilderInterface
     /**
      * {@inheritdoc}
      */
-    public function all()
+    public function all(): array
     {
         $this->resolveChildren();
 
@@ -79,12 +78,12 @@ class FilterBuilder implements FilterBuilderInterface
      * @return int
      */
     #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return \count($this->children);
     }
 
-    public function countUnresolved()
+    public function countUnresolved(): int
     {
         return \count($this->unresolvedChildren);
     }
@@ -92,7 +91,7 @@ class FilterBuilder implements FilterBuilderInterface
     /**
      * Converts all unresolved children into registered service.
      */
-    private function resolveChildren()
+    private function resolveChildren(): void
     {
         if($this->countUnresolved() > 0) {
             foreach($this->unresolvedChildren as $name => $info) {

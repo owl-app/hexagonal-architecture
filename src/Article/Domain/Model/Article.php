@@ -25,11 +25,6 @@ final class Article extends AggregateRoot
         return $course;
     }
 
-    public static function fromPrimitives(array $primitives): Article
-    {
-        return new self($primitives['id'], $primitives['title'], $primitives['description']);
-    }
-
     public function toPrimitives(): array
     {
         return [

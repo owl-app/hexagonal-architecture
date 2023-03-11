@@ -6,7 +6,7 @@ namespace Owl\Shared\Infrastructure\DataProvider\Orm\Applicator;
 
 use Doctrine\ORM\QueryBuilder;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
-use Owl\Shared\Infrastructure\DataProvider\Orm\Type\CollectionTypeInterface;
+use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 
 interface CollectionApplicatorInterface
 {

@@ -36,7 +36,7 @@ final class StringFilter extends AbstractFilter
 
     public const TYPE_NOT_IN = 'not_in';
 
-    public function buildQuery(mixed $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, $data, array $fieldAliases): void
+    public function buildQuery(mixed $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, mixed $data, array $fieldAliases, array $options): void
     {
         $value = is_array($data) ? $data['value'] ?? null : $data;
         $type = $data['type'] ?? ($options['type'] ?? self::TYPE_CONTAINS);
@@ -47,6 +47,7 @@ final class StringFilter extends AbstractFilter
             return;
         }
 
+        $expressions = [];
         foreach ($fieldAliases as $field) {
             $expressions[] = $this->getExpression($queryBuilder, $queryNameGenerator, $type, $field, $value);
         }
@@ -69,8 +70,8 @@ final class StringFilter extends AbstractFilter
         QueryNameGeneratorInterface $queryNameGenerator,
         string $type,
         string $field,
-        $value,
-    ) {
+        mixed $value,
+    ): mixed {
         switch ($type) {
             case self::TYPE_EQUAL:
                 $parameterName = $queryNameGenerator->generateParameterName($field);

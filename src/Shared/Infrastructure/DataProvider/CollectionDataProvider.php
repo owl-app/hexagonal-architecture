@@ -8,6 +8,7 @@ use Owl\Shared\Domain\DataProvider\CollectionDataProviderInterface;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
 use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Factory\QueryBuilderFactoryInterface;
+use Owl\Shared\Infrastructure\DataProvider\Orm\Type\BuildableQueryBuilderInterface;
 
 final class CollectionDataProvider implements CollectionDataProviderInterface
 {
