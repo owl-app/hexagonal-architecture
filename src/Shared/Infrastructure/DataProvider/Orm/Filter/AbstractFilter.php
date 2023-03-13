@@ -8,5 +8,4 @@ use Owl\Shared\Domain\DataProvider\Filter\AbstractFilter as DomainAbstractFilter
 
 abstract class AbstractFilter extends DomainAbstractFilter implements FilterInterface
 {
-
 }

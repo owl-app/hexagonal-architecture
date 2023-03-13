@@ -10,5 +10,5 @@ use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 
 interface CollectionApplicatorInterface
 {
-    public function applyToCollection(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams) : void;
+    public function applyToCollection(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams): void;
 }

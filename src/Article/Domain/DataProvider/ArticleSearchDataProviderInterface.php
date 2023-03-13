@@ -8,5 +8,4 @@ use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 
 interface ArticleSearchDataProviderInterface extends CollectionTypeInterface
 {
-
 }

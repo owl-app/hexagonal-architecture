@@ -9,7 +9,6 @@ use Owl\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 use Owl\Article\Domain\Repository\ArticleRepositoryInterface;
 use Doctrine\Persistence\ManagerRegistry;
 
-
 final class ArticleRepository extends DoctrineRepository implements ArticleRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)

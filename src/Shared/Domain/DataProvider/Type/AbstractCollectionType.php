@@ -10,6 +10,5 @@ abstract class AbstractCollectionType implements CollectionTypeInterface
 {
     public function buildPagination(PaginationBuilderInterface $paginationBuilder): void
     {
-
     }
 }

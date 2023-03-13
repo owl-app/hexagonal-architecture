@@ -13,5 +13,5 @@ interface CollectionResultableApplicatorInterface extends CollectionApplicatorIn
 {
     public function supportsResult(CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams, BuilderRegistryInterface $builderRegistry): bool;
 
-    public function getResult(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams, BuilderRegistryInterface $builderRegistry) : iterable;
+    public function getResult(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams, BuilderRegistryInterface $builderRegistry): iterable;
 }

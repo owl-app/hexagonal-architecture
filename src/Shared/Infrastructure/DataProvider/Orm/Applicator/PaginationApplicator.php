@@ -25,7 +25,7 @@ class PaginationApplicator implements CollectionResultableApplicatorInterface, B
         $builderRegistry->add($this->builder->getName(), $this->builder);
     }
 
-    public function applyToCollection(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams) : void
+    public function applyToCollection(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams): void
     {
         $collectionType->buildPagination($this->builder);
 
@@ -43,7 +43,7 @@ class PaginationApplicator implements CollectionResultableApplicatorInterface, B
         return $this->builder->hasPagination();
     }
 
-    public function getResult(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams, BuilderRegistryInterface $builderRegistry) : iterable
+    public function getResult(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams, BuilderRegistryInterface $builderRegistry): iterable
     {
         $query = $queryBuilder->getQuery();
 

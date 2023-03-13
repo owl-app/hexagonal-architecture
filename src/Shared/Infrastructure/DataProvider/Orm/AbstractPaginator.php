@@ -67,7 +67,7 @@ abstract class AbstractPaginator implements IteratorAggregate, PartialPaginatorI
     #[ReturnTypeWillChange]
     public function getIterator(): Traversable
     {
-        if(is_null($this->iterator)) {
+        if (is_null($this->iterator)) {
             $this->iterator = $this->paginator->getIterator();
         }
 

@@ -18,7 +18,7 @@ final class RequestParamsFactory implements RequestParamsFactoryInterface
 
     public function create(string $class, array $parameters, array $query): RequestParamsInterface
     {
-        if(!is_subclass_of($class, RequestParamsInterface::class)) {
+        if (!is_subclass_of($class, RequestParamsInterface::class)) {
             throw new InvalidArgumentException(sprintf('<%s> must implements Owl\Shared\Domain\DataProvider\Request\RequestParamsInterface', $class));
         }
 

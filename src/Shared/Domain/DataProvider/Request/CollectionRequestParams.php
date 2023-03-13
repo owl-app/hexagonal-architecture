@@ -6,35 +6,35 @@ namespace Owl\Shared\Domain\DataProvider\Request;
 
 class CollectionRequestParams extends RequestParams implements CollectionRequestParamsInterface
 {
-   public function getQueryParams(): array
-   {
-      return $this->query;
-   }
+    public function getQueryParams(): array
+    {
+        return $this->query;
+    }
 
-   public function getDefaultFiltering(): array
-   {
-      if(isset($this->parameters['filtering'])) {
-         return $this->parameters['filtering'];
-      }
+    public function getDefaultFiltering(): array
+    {
+        if (isset($this->parameters['filtering'])) {
+            return $this->parameters['filtering'];
+        }
 
-      return [];
-   }
+        return [];
+    }
 
-   public function getDefaultSorting(): array
-   {
-      if(isset($this->parameters['sorting'])) {
-         return $this->parameters['sorting'];
-      }
+    public function getDefaultSorting(): array
+    {
+        if (isset($this->parameters['sorting'])) {
+            return $this->parameters['sorting'];
+        }
 
-      return [];
-   }
+        return [];
+    }
 
-   public function getDefaultPagination(): array
-   {
-      if(isset($this->parameters['pagination'])) {
-         return $this->parameters['pagination'];
-      }
+    public function getDefaultPagination(): array
+    {
+        if (isset($this->parameters['pagination'])) {
+            return $this->parameters['pagination'];
+        }
 
-      return [];
-   }
+        return [];
+    }
 }
