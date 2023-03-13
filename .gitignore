@@ -10,3 +10,8 @@
 ###< symfony/framework-bundle ###
 
 /apps/*/var/
+
+###> phive/tools ###
+/tools/*
+!/tools/.gitkeep
+###< phive/tools ###
