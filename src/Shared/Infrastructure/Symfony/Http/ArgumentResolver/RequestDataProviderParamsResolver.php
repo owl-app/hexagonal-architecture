@@ -14,13 +14,12 @@ class RequestDataProviderParamsResolver implements ValueResolverInterface
 {
     public function __construct(
         private readonly RequestParamsFactoryInterface $requestParamsFactory
-    )
-    {
+    ) {
     }
 
     public function resolve(Request $request, ArgumentMetadata $argument): iterable
     {
-        if(!$this->supports($argument->getType())) {
+        if (!$this->supports($argument->getType())) {
             return [];
         }
 

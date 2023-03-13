@@ -1,6 +1,6 @@
 <?php
 
- namespace Owl\Shared\Domain\DataProvider\Builder;
+namespace Owl\Shared\Domain\DataProvider\Builder;
 
 use Owl\Shared\Domain\DataProvider\Exception\InvalidArgumentException;
 use Owl\Shared\Domain\DataProvider\Filter\FilterInterface;
@@ -8,6 +8,8 @@ use Owl\Shared\Domain\DataProvider\Registry\FilterRegistryInterface;
 
 class FilterBuilder implements FilterBuilderInterface
 {
+    private string $paramName;
+
     /**
      * The children of the form builder.
      *
@@ -22,13 +24,43 @@ class FilterBuilder implements FilterBuilderInterface
      */
     private $unresolvedChildren = [];
 
-    public function __construct(private readonly FilterRegistryInterface $registry)
+    public function __construct(
+        private readonly FilterRegistryInterface $registry,
+        private readonly array $defaultParameters,
+        private readonly array $queryParams
+    ) {
+        $this->paramName = $defaultParameters['param_name'] ?? 'filters';
+    }
+
+    public function getName(): string
     {
+        return self::NAME;
+    }
+
+    public function getParamName(): string
+    {
+        return $this->paramName;
+    }
+
+    public function setParamName(string $paramName): self
+    {
+        $this->paramName = $paramName;
+
+        return $this;
+    }
+
+    public function getDataFilters(): array
+    {
+       if (isset($this->queryParams[$this->paramName])) {
+          return $this->queryParams[$this->paramName];
+       }
+ 
+       return [];
     }
 
     public function add(string $name = null, string $filter, string|array $fields = null, array $options = []): self
     {
-        if(is_null($fields)) {
+        if (is_null($fields)) {
             $filterFields = [$name];
         } else {
             $filterFields = is_string($fields) ? [$fields] : $fields;
@@ -93,8 +125,8 @@ class FilterBuilder implements FilterBuilderInterface
      */
     private function resolveChildren(): void
     {
-        if($this->countUnresolved() > 0) {
-            foreach($this->unresolvedChildren as $name => $info) {
+        if ($this->countUnresolved() > 0) {
+            foreach ($this->unresolvedChildren as $name => $info) {
                 $classFilter = $this->registry->get($info[0]);
                 /**
                  * @var FilterInterface $filterService

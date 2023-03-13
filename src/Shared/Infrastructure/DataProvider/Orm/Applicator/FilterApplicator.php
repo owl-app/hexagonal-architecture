@@ -6,34 +6,46 @@ namespace Owl\Shared\Infrastructure\DataProvider\Orm\Applicator;
 
 use Doctrine\ORM\QueryBuilder;
 use Owl\Infrasctructure\Domain\DataProvider\Orm\Util\QueryNameGenerator;
+use Owl\Shared\Domain\DataProvider\Builder\BuilderAwareInterface;
+use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
 use Owl\Shared\Domain\DataProvider\Builder\FilterBuilder;
+use Owl\Shared\Domain\DataProvider\Registry\BuilderRegistryInterface;
 use Owl\Shared\Domain\DataProvider\Registry\FilterRegistryInterface;
 use Owl\Shared\Domain\DataProvider\Request\CollectionRequestParamsInterface;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Resolver\FieldResolverInterface;
 use Owl\Shared\Domain\DataProvider\Type\CollectionTypeInterface;
 
-class FilterApplicator implements CollectionApplicatorInterface
+class FilterApplicator implements CollectionApplicatorInterface, BuilderAwareInterface
 {
+    private FilterBuilderInterface $builder;
+
     public function __construct(private readonly FieldResolverInterface $fieldResolver, private readonly FilterRegistryInterface $registry)
     {
         
     }
 
+    public function setBuilder(BuilderRegistryInterface $builderRegistry, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams): void
+    {
+        $this->builder = new FilterBuilder($this->registry, $collectionRequestParams->getDefaultFiltering(), $collectionRequestParams->getQueryParams());
+        $builderRegistry->add($this->builder->getName(), $this->builder);
+    }
+
     public function applyToCollection(QueryBuilder $queryBuilder, CollectionTypeInterface $collectionType, CollectionRequestParamsInterface $collectionRequestParams) : void
     {
-        $filterBuilder = new FilterBuilder($this->registry);
         $queryNameGenerator = new QueryNameGenerator();
-        $data = $collectionRequestParams->getDataFilters();
-        $collectionType->buildFilters($filterBuilder);
+        $dataFilters = $this->builder->getDataFilters();
+        $collectionType->buildFilters($this->builder);
 
-        foreach($filterBuilder->all() as $name => $filter) {
-            $resolvedFields = [];
-
-            foreach($filter->getFields() as $field) {
-                $resolvedFields[$field] = $this->fieldResolver->resolveFieldByAddingJoins($queryBuilder, $field);
+        if($dataFilters) {
+            foreach($this->builder->all() as $name => $filter) {
+                $resolvedFields = [];
+    
+                foreach($filter->getFields() as $field) {
+                    $resolvedFields[$field] = $this->fieldResolver->resolveFieldByAddingJoins($queryBuilder, $field);
+                }
+    
+                $filter->buildQuery($queryBuilder, $queryNameGenerator, $dataFilters[$name] ?? null, $resolvedFields, $filter->getOptions());
             }
-
-            $filter->buildQuery($queryBuilder, $queryNameGenerator, $data[$name] ?? null, $resolvedFields, $filter->getOptions());
         }
     }
 }

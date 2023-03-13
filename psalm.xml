@@ -14,11 +14,12 @@
         </ignoreFiles>
     </projectFiles>
     <issueHandlers>
-        <UndefinedDocblockClass>
-            <errorLevel type="suppress">
-                <referencedClass name="UnitEnum" />
+        <MissingConstructor>
+            <errorLevel type="info">
+                <file name="src/Shared/Infrastructure/DataProvider/Orm/Applicator/PaginationApplicator.php" />
+                <file name="src/Shared/Infrastructure/DataProvider/Orm/Applicator/SortApplicator.php" />
             </errorLevel>
-        </UndefinedDocblockClass>
+        </MissingConstructor>
 
         <!-- level 3 issues -->
         <PropertyNotSetInConstructor errorLevel="info" />

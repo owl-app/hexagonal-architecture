@@ -27,7 +27,7 @@ services:
       - '@owl.data_provider.doctrine.orm.field_resolver'
       - '@owl.registry.date_provider_filter'
     tags:
-      - { name: data_provider.doctrine.orm.applicator.collection, priority: -64 }
+      - { name: data_provider.doctrine.orm.applicator.collection, builder: Owl\Shared\Domain\DataProvider\Builder\Filterbuilder, priority: -64 }
       - { name: data_provider.doctrine.orm.applicator.item, priority: -64 }
 
   owl.data_provider.doctrine.orm.sort_applicator:

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Infrastructure\DataProvider\Orm\Filter;
 
-use Owl\Shared\Domain\DataProvider\Filter\AbstractFilter;
-use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
 use Doctrine\ORM\QueryBuilder;
 use Owl\Shared\Domain\DataProvider\Exception\InvalidArgumentException;
 use Owl\Shared\Domain\DataProvider\Util\QueryNameGeneratorInterface;
@@ -36,7 +34,7 @@ final class StringFilter extends AbstractFilter
 
     public const TYPE_NOT_IN = 'not_in';
 
-    public function buildQuery(mixed $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, mixed $data, array $fieldAliases, array $options): void
+    public function buildQuery(QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, mixed $data, array $fieldAliases, array $options): void
     {
         $value = is_array($data) ? $data['value'] ?? null : $data;
         $type = $data['type'] ?? ($options['type'] ?? self::TYPE_CONTAINS);

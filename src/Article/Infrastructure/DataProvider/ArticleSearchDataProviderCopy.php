@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Owl\Article\Infrastructure\DataProvider;
 
 use Doctrine\ORM\QueryBuilder;
-use Owl\Article\Domain\DataProvider\ArticleSearchDataProviderInterface;
 use Owl\Shared\Domain\DataProvider\Builder\FilterBuilderInterface;
+use Owl\Shared\Domain\DataProvider\Builder\PaginationBuilderInterface;
 use Owl\Shared\Domain\DataProvider\Builder\SortBuilderInterface;
 use Owl\Shared\Domain\DataProvider\Type\AbstractCollectionType;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Filter\StringFilter;
 use Owl\Shared\Infrastructure\DataProvider\Orm\Type\BuildableQueryBuilderInterface;
 
-final class ArticleSearchDataProvider extends AbstractCollectionType implements BuildableQueryBuilderInterface, ArticleSearchDataProviderInterface
+final class ArticleSearchDataProviderCopy extends AbstractCollectionType implements BuildableQueryBuilderInterface
 {
     public function buildFilters(FilterBuilderInterface $filterBuilder): void
     {
@@ -23,7 +23,7 @@ final class ArticleSearchDataProvider extends AbstractCollectionType implements 
 
     public function buildQueryBuilder(QueryBuilder $queryBuilder): void
     {
-        $queryBuilder->select('partial o.{id, title}');
+        $queryBuilder->select('o.id, o.title');
     }
 
     public function buildSort(SortBuilderInterface $sortBuilder): void
@@ -32,5 +32,11 @@ final class ArticleSearchDataProvider extends AbstractCollectionType implements 
             ->setParamName('sort')
             ->setAvailable(['id'])
         ;
+    }
+
+    public function buildPagination(PaginationBuilderInterface $paginationBuilder): void
+    {
+        $paginationBuilder
+            ->setHasPagination(false);
     }
 }

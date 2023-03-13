@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Infrastructure\Symfony\Http\ArgumentResolver;
 
+use Owl\Shared\Application\Dto\RequestDtoInterface;
 use Owl\Shared\Infrastructure\Symfony\Exception\RequestValidationException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ValueResolverInterface;

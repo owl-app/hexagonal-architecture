@@ -11,6 +11,7 @@ use Owl\Shared\Infrastructure\Symfony\ApiController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Owl\Article\Domain\Model\Article;
+use Owl\Article\Infrastructure\DataProvider\ArticleSearchDataProviderCopy;
 
 final class ArticleGetController extends ApiController
 {
@@ -23,7 +24,14 @@ final class ArticleGetController extends ApiController
 
     public function __invoke(Request $request, CollectionRequestParams $collectionRequestParams): JsonResponse
     {
+        $data2 = $this->collectionDataProvider->get(Article::class, new ArticleSearchDataProviderCopy(), $collectionRequestParams);
+
         $data = $this->collectionDataProvider->get(Article::class, $this->articleSearchDataProvider, $collectionRequestParams);
+
+        
+        foreach($data as $key => $item) {
+            echo $key;
+        }
 
         return new JsonResponse(
             ['test' => 'test']

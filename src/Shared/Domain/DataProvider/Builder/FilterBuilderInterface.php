@@ -6,8 +6,16 @@ namespace Owl\Shared\Domain\DataProvider\Builder;
 
 use Owl\Shared\Domain\DataProvider\Filter\FilterInterface;
 
-interface FilterBuilderInterface
+interface FilterBuilderInterface extends BuilderInterface
 {
+    public const NAME = 'filter';
+
+    public function getParamName(): string;
+
+    public function setParamName(string $paramName): self;
+
+    public function getDataFilters(): array;
+
     public function add(string $name = null, string $filter, string|array $fields = null, array $options = []): self;
 
     public function get(string $name): FilterInterface;

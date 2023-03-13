@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Owl\Shared\Domain\Aggregate;
 
-use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
+use Owl\Shared\Domain\Bus\Event\DomainEvent;
 
 abstract class AggregateRoot
 {
