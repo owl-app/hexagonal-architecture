@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Owl\Shared\Infrastructure\DataProvider;
+namespace Owl\Shared\Infrastructure\DataProvider\Orm;
 
 use Owl\Shared\Domain\DataProvider\Builder\BuilderAwareInterface;
 use Owl\Shared\Domain\DataProvider\CollectionDataProviderInterface;

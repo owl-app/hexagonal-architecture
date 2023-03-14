@@ -6,7 +6,7 @@ services:
       - 'data provider filter'
 
   Owl\Shared\Domain\DataProvider\CollectionDataProviderInterface:
-    class: Owl\Shared\Infrastructure\DataProvider\CollectionDataProvider
+    class: Owl\Shared\Infrastructure\DataProvider\Orm\CollectionDataProvider
     arguments:
       - '@owl.data_provider.doctrine.orm.factory_query_builder'
       - !tagged_iterator data_provider.doctrine.orm.applicator.collection
