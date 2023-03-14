@@ -23,7 +23,7 @@ final class ArticleSearchDataProvider extends AbstractCollectionType implements 
 
     public function buildQueryBuilder(QueryBuilder $queryBuilder): void
     {
-        $queryBuilder->select('partial o.{id, title}');
+        $queryBuilder->select('o.id, o.title');
     }
 
     public function buildSort(SortBuilderInterface $sortBuilder): void

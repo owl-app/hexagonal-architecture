@@ -9,7 +9,6 @@ use Owl\Shared\Domain\Bus\Command\CommandInterface;
 use Owl\Shared\Domain\Exception\CommandNotRegisteredError;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
-use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 final class CommandBus implements CommandBusInterface

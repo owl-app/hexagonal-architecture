@@ -12,13 +12,18 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Owl\Article\Domain\Model\Article;
 use Owl\Article\Infrastructure\DataProvider\ArticleSearchDataProviderCopy;
+use Owl\Shared\Domain\Bus\Command\CommandBusInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 final class ArticleGetController extends ApiController
 {
     public function __construct(
         private readonly CollectionDataProviderInterface $collectionDataProvider,
-        private readonly ArticleSearchDataProviderInterface $articleSearchDataProvider
+        private readonly ArticleSearchDataProviderInterface $articleSearchDataProvider,
+        private readonly CommandBusInterface $commandBus,
+        private readonly SerializerInterface $serializer
     ) {
+        parent::__construct($commandBus, $serializer);
     }
 
 
@@ -28,13 +33,6 @@ final class ArticleGetController extends ApiController
 
         $data = $this->collectionDataProvider->get(Article::class, $this->articleSearchDataProvider, $collectionRequestParams);
 
-        
-        foreach($data as $key => $item) {
-            echo $key;
-        }
-
-        return new JsonResponse(
-            ['test' => 'test']
-        );
+        return $this->responseJson($data);
     }
 }

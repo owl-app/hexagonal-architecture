@@ -9,9 +9,13 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
+###> apps ###
 /apps/*/var/
+###< apps ###
 
 ###> phive/tools ###
 /tools/*
 !/tools/.gitkeep
 ###< phive/tools ###
+
+.vscode/

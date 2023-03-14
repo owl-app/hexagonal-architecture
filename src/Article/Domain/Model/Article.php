@@ -34,17 +34,17 @@ final class Article extends AggregateRoot
         ];
     }
 
-    public function id(): string
+    public function getId(): string
     {
         return $this->id;
     }
 
-    public function title(): string
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function description(): string
+    public function getDescription(): string
     {
         return $this->description;
     }

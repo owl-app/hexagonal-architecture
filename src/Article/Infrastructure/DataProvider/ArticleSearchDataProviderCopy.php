@@ -23,7 +23,7 @@ final class ArticleSearchDataProviderCopy extends AbstractCollectionType impleme
 
     public function buildQueryBuilder(QueryBuilder $queryBuilder): void
     {
-        $queryBuilder->select('o.id, o.title');
+        // $queryBuilder->select('o.id, o.title');
     }
 
     public function buildSort(SortBuilderInterface $sortBuilder): void

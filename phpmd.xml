@@ -1,0 +1,348 @@
+{
+    "version": "2.9.1snapshot202009232245",
+    "package": "phpmd",
+    "timestamp": "2023-03-13T23:44:32+01:00",
+    "files": [],
+    "errors": [
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Create\/ArticleCreator.php",
+            "message": "Unexpected token: Owl\\Article\\Application\\Create, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Create\/ArticleCreator.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Create\/CreateArticleCommand.php",
+            "message": "Unexpected token: Owl\\Article\\Application\\Create, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Create\/CreateArticleCommand.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Create\/CreateArticleCommandHandler.php",
+            "message": "Unexpected token: Owl\\Article\\Application\\Create, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Create\/CreateArticleCommandHandler.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Dto\/CreateArticleRequestDto.php",
+            "message": "Unexpected token: Owl\\Article\\Application\\Dto, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Dto\/CreateArticleRequestDto.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Dto\/CreateCommentRequestDto.php",
+            "message": "Unexpected token: Owl\\Article\\Application\\Dto, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Application\/Dto\/CreateCommentRequestDto.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Domain\/DataProvider\/ArticleSearchDataProviderInterface.php",
+            "message": "Unexpected token: Owl\\Article\\Domain\\DataProvider, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Domain\/DataProvider\/ArticleSearchDataProviderInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Domain\/Model\/Article.php",
+            "message": "Unexpected token: Owl\\Article\\Domain\\Model, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Domain\/Model\/Article.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Domain\/Repository\/ArticleRepositoryInterface.php",
+            "message": "Unexpected token: Owl\\Article\\Domain\\Repository, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Domain\/Repository\/ArticleRepositoryInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Infrastructure\/DataProvider\/ArticleSearchDataProvider.php",
+            "message": "Unexpected token: Owl\\Article\\Infrastructure\\DataProvider, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Infrastructure\/DataProvider\/ArticleSearchDataProvider.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Infrastructure\/DataProvider\/ArticleSearchDataProviderCopy.php",
+            "message": "Unexpected token: Owl\\Article\\Infrastructure\\DataProvider, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Infrastructure\/DataProvider\/ArticleSearchDataProviderCopy.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Article\/Infrastructure\/Persistence\/ArticleRepository.php",
+            "message": "Unexpected token: Owl\\Article\\Infrastructure\\Persistence, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Article\/Infrastructure\/Persistence\/ArticleRepository.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Application\/Dto\/RequestDtoInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Application\\Dto, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Application\/Dto\/RequestDtoInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Aggregate\/AggregateRoot.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\Aggregate, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Aggregate\/AggregateRoot.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Command\/CommandBusInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\Bus\\Command, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Command\/CommandBusInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Command\/CommandHandlerInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\Bus\\Command, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Command\/CommandHandlerInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Command\/CommandInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\Bus\\Command, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Command\/CommandInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Event\/DomainEvent.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\Bus\\Event, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Event\/DomainEvent.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Event\/EventBusHandlerInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\Bus\\Event, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Event\/EventBusHandlerInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Query\/QueryHandlerInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\Bus\\Query, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Bus\/Query\/QueryHandlerInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/BuilderAwareInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Builder, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/BuilderAwareInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/BuilderInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Builder, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/BuilderInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/FilterBuilder.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Builder, line: 3, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/FilterBuilder.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/FilterBuilderInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Builder, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/FilterBuilderInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/PaginationBuilder.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Builder, line: 3, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/PaginationBuilder.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/PaginationBuilderInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Builder, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/PaginationBuilderInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/SortBuilder.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Builder, line: 3, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/SortBuilder.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/SortBuilderInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Builder, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Builder\/SortBuilderInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/CollectionDataProviderInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/CollectionDataProviderInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/ExceptionInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Exception, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/ExceptionInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/ExistingServiceException.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Exception, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/ExistingServiceException.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/InvalidArgumentException.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Exception, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/InvalidArgumentException.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/NonExistingServiceException.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Exception, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/NonExistingServiceException.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/RuntimeException.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Exception, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Exception\/RuntimeException.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Factory\/RequestParamsFactory.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Factory, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Factory\/RequestParamsFactory.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Factory\/RequestParamsFactoryInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Factory, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Factory\/RequestParamsFactoryInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Filter\/AbstractFilter.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Filter, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Filter\/AbstractFilter.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Filter\/FilterInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Filter, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Filter\/FilterInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Pagination\/PaginatorInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Pagination, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Pagination\/PaginatorInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Pagination\/PartialPaginatorInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Pagination, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Pagination\/PartialPaginatorInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Registry\/BuilderRegistry.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Registry, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Registry\/BuilderRegistry.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Registry\/BuilderRegistryInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Registry, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Registry\/BuilderRegistryInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Registry\/FilterRegistry.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Registry, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Registry\/FilterRegistry.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Registry\/FilterRegistryInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Registry, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Registry\/FilterRegistryInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Request\/CollectionRequestParams.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Request, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Request\/CollectionRequestParams.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Request\/CollectionRequestParamsInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Request, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Request\/CollectionRequestParamsInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Request\/RequestParams.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Request, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Request\/RequestParams.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Request\/RequestParamsInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Request, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Request\/RequestParamsInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Type\/AbstractCollectionType.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Type, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Type\/AbstractCollectionType.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Type\/CollectionTypeInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Type, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Type\/CollectionTypeInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Util\/QueryNameGeneratorInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Util, line: 14, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Util\/QueryNameGeneratorInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Validation\/SortingParametersValidator.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Validation, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Validation\/SortingParametersValidator.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Validation\/SortingParametersValidatorInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\DataProvider\\Validation, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/DataProvider\/Validation\/SortingParametersValidatorInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Exception\/CommandNotRegisteredError.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\Exception, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Exception\/CommandNotRegisteredError.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Persistence\/RepositoryInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\Persistence, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Persistence\/RepositoryInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Utils.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/Utils.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/UuidGeneratorInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/UuidGeneratorInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/ValueObject\/IntValueObject.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\ValueObject, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/ValueObject\/IntValueObject.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/ValueObject\/StringValueObject.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\ValueObject, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/ValueObject\/StringValueObject.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/ValueObject\/Uuid.php",
+            "message": "Unexpected token: Owl\\Shared\\Domain\\ValueObject, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Domain\/ValueObject\/Uuid.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Bus\/Command\/CommandBus.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\Bus\\Command, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Bus\/Command\/CommandBus.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/CollectionDataProvider.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/CollectionDataProvider.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/AbstractPaginator.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/AbstractPaginator.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/CollectionApplicatorInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Applicator, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/CollectionApplicatorInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/CollectionResultableApplicatorInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Applicator, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/CollectionResultableApplicatorInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/FilterApplicator.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Applicator, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/FilterApplicator.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/PaginationApplicator.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Applicator, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/PaginationApplicator.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/SortApplicator.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Applicator, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Applicator\/SortApplicator.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Factory\/QueryBuilderFactory.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Factory, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Factory\/QueryBuilderFactory.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Factory\/QueryBuilderFactoryInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Factory, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Factory\/QueryBuilderFactoryInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Filter\/AbstractFilter.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Filter, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Filter\/AbstractFilter.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Filter\/FilterInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Filter, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Filter\/FilterInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Filter\/StringFilter.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Filter, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Filter\/StringFilter.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Paginator.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Paginator.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Resolver\/FieldResolver.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Resolver, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Resolver\/FieldResolver.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Resolver\/FieldResolverInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Resolver, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Resolver\/FieldResolverInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Type\/BuildableQueryBuilderInterface.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\DataProvider\\Orm\\Type, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Type\/BuildableQueryBuilderInterface.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Util\/QueryNameGenerator.php",
+            "message": "Unexpected token: Owl\\Infrasctructure\\Domain\\DataProvider\\Orm\\Util, line: 14, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/DataProvider\/Orm\/Util\/QueryNameGenerator.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Persistence\/Doctrine\/DoctrineRepository.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\Persistence\\Doctrine, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Persistence\/Doctrine\/DoctrineRepository.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/RamseyUuidGenerator.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/RamseyUuidGenerator.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/ApiController.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\Symfony, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/ApiController.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/Compiler\/RegisterDataProviderFilterPass.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\Symfony\\Compiler, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/Compiler\/RegisterDataProviderFilterPass.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/EventListener\/RequestValidationExceptionListener.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\Symfony\\EventListener, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/EventListener\/RequestValidationExceptionListener.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/Exception\/RequestValidationException.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\Symfony\\Exception, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/Exception\/RequestValidationException.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/Http\/ArgumentResolver\/RequestDataProviderParamsResolver.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\Symfony\\Http\\ArgumentResolver, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/Http\/ArgumentResolver\/RequestDataProviderParamsResolver.php."
+        },
+        {
+            "fileName": "\/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/Http\/ArgumentResolver\/RequestDtoArgumentResolver.php",
+            "message": "Unexpected token: Owl\\Shared\\Infrastructure\\Symfony\\Http\\ArgumentResolver, line: 5, col: 11, file: \/var\/www\/html\/hexagonal-architecture\/src\/Shared\/Infrastructure\/Symfony\/Http\/ArgumentResolver\/RequestDtoArgumentResolver.php."
+        }
+    ]
+}
